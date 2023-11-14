@@ -3,7 +3,6 @@ package repository
 import (
 	"gorm.io/gorm"
 	"log"
-	"testByAivia/internal/models"
 )
 
 type Repo struct {
@@ -19,10 +18,6 @@ func NewConnection(conn *gorm.Dialector) (*Repo, error) {
 	return &Repo{conn: db}, nil
 }
 
-func (r *Repo) Auth(user models.User) (*models.User, error) {
-	tx := r.conn.Table("users").Create(&user)
-	if tx.Error != nil {
-		log.Fatal(tx.Error)
-	}
-	return &user, nil
+func (r *Repo) TestConnection() {
+	log.Print("Database connection")
 }
