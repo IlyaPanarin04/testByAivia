@@ -17,8 +17,8 @@ func NewService(dataStorePostgres repository.DataStorePostgres, server *gin.Engi
 	}
 }
 
-func (s *Service) StartServer() {
-	s.server.GET("/auth", s.Auth)
+func (s *Service) StartServer(port string) {
+	s.server.GET("/price", s.GetPrice)
 
-	s.server.Run()
+	s.server.Run(port)
 }

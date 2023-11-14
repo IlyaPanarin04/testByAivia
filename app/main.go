@@ -23,5 +23,5 @@ func main() {
 
 	s := service.NewService(db, serv)
 
-	s.StartServer()
+	s.StartServer(newConfig.Port)
 }
